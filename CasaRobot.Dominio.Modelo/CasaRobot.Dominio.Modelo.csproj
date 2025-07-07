@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Entidades\" />
+    <Folder Include="ObjetoValor\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CasaRobot.Dominio.Servicio\CasaRobot.Dominio.Servicio.csproj" />
+  </ItemGroup>
+
+</Project>
