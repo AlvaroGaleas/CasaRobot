@@ -13,9 +13,11 @@ namespace CasaRobot.Aplicacion.ServiciosImpl
     public class ClientesServicioImpl :IClientesServicio
     {
         private IClientesRepositorio clientesRepositorio;
+        private readonly CasaRobot2Context _dbcontext;
         public ClientesServicioImpl(CasaRobot2Context _casarobot2Context)
         {
-            this.clientesRepositorio = new ClientesRepositorioImpl(_casarobot2Context);
+            _dbcontext = _casarobot2Context;
+            clientesRepositorio = new ClientesRepositorioImpl(_dbcontext);
         }
 
         public async Task AddClienteAsync(Clientes nuevoCliente)

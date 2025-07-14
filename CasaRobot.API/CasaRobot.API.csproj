@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -7,7 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.3.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CasaRobot.Aplicacion.DTO\CasaRobot.Aplicacion.DTO.csproj" />
+    <ProjectReference Include="..\CasaRobot.Aplicacion\CasaRobot.Aplicacion.csproj" />
+    <ProjectReference Include="..\CasaRobot.Dominio.Modelo\CasaRobot.Dominio.Modelo.csproj" />
+    <ProjectReference Include="..\CasaRobot.Dominio.Servicio\CasaRobot.Dominio.Servicio.csproj" />
   </ItemGroup>
 
 </Project>
