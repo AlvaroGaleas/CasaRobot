@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CasaRobot.Aplicacion.DTO\CasaRobot.Aplicacion.DTO.csproj" />
     <ProjectReference Include="..\CasaRobot.Aplicacion\CasaRobot.Aplicacion.csproj" />
     <ProjectReference Include="..\CasaRobot.Dominio.Modelo\CasaRobot.Dominio.Modelo.csproj" />
     <ProjectReference Include="..\CasaRobot.Dominio.Servicio\CasaRobot.Dominio.Servicio.csproj" />

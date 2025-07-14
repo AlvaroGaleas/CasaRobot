@@ -1,4 +1,5 @@
-﻿using CasaRobot.Dominio.Modelo.Entidades;
+﻿using CasaRobot.Aplicacion.DTO.DTOs;
+using CasaRobot.Dominio.Modelo.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,5 +22,11 @@ namespace CasaRobot.Aplicacion.Servicios
         Task<IEnumerable<OrdenesServicio>> GetAllOrdenesServicioAsync();//Select *
         [OperationContract]
         Task<OrdenesServicio> GetbyIdOrdenesServicioAsync(int id);//Buscar entidades por ID
+        [OperationContract]
+        Task<List<EstadoOrdenDetalleDTO>> ListarOrdenesPorEstadoComplejo();
+        [OperationContract]
+        Task<List<HistorialTecnicoClienteDTO>> ListarHistorialTecnicoCliente();
+        [OperationContract]
+        Task<List<EstadoClientesDTO>> ListarClientesPorEstado();
     }
 }
