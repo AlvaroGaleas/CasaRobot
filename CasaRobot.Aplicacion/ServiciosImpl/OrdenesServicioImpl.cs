@@ -1,4 +1,5 @@
-﻿using CasaRobot.Aplicacion.Servicios;
+﻿using CasaRobot.Aplicacion.DTO.DTOs;
+using CasaRobot.Aplicacion.Servicios;
 using CasaRobot.Dominio.Modelo.Abstracciones;
 using CasaRobot.Dominio.Modelo.Entidades;
 using CasaRobot.Infraestructura.AccesoDatos.Repositorio;
@@ -36,6 +37,21 @@ namespace CasaRobot.Aplicacion.ServiciosImpl
         public Task<OrdenesServicio> GetbyIdOrdenesServicioAsync(int id)
         {
             return ordenesServicioRepositorio.GetbyIdAsync(id);
+        }
+
+        public Task<List<EstadoClientesDTO>> ListarClientesPorEstado()
+        {
+            return ordenesServicioRepositorio.ListarClientesPorEstado();
+        }
+
+        public Task<List<HistorialTecnicoClienteDTO>> ListarHistorialTecnicoCliente()
+        {
+            return ordenesServicioRepositorio.ListarHistorialTecnicoCliente();
+        }
+
+        public Task<List<EstadoOrdenDetalleDTO>> ListarOrdenesPorEstadoComplejo()
+        {
+            return ordenesServicioRepositorio.ListarOrdenesPorEstadoComplejo();
         }
 
         public async Task UpdateOrdenesServicioAsync(OrdenesServicio entidad)

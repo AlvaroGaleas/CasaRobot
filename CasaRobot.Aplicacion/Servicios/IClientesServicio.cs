@@ -1,4 +1,5 @@
-﻿using CasaRobot.Dominio.Modelo.Entidades;
+﻿using CasaRobot.Aplicacion.DTO.DTOs;
+using CasaRobot.Dominio.Modelo.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,6 @@ namespace CasaRobot.Aplicacion.Servicios
         Task<List<Clientes>> ListarClientes();
         [OperationContract]
         Task<List<Clientes>> ListarClientesNombre(string nombre);
-        
+      
     }
 }

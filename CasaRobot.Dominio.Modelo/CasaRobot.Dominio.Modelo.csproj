@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CasaRobot.Dominio.Servicio\CasaRobot.Dominio.Servicio.csproj" />
+    <ProjectReference Include="..\CasaRobot.Aplicacion.DTO\CasaRobot.Aplicacion.DTO.csproj" />
   </ItemGroup>
 
 </Project>
