@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace CasaRobot.Dominio.Modelo.Entidades;
 
@@ -16,8 +17,8 @@ public partial class Equipos
     public string Modelo { get; set; }
 
     public string NumeroSerie { get; set; }
-
+    [JsonIgnore]
     public virtual Clientes Cliente { get; set; }
-
+    [JsonIgnore]
     public virtual ICollection<OrdenesServicio> OrdenesServicio { get; set; } = new List<OrdenesServicio>();
 }

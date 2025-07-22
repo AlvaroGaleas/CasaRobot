@@ -38,6 +38,11 @@ namespace CasaRobot.Aplicacion.ServiciosImpl
             return notificacionesRepositorio.GetbyIdAsync(id);
         }
 
+        public Task<List<Notificaciones>> ListarNotificaciones()
+        {
+            return notificacionesRepositorio.ListarNotificaciones();
+        }
+
         public async Task UpdateNotificacionesAsync(Notificaciones entidad)
         {
             await notificacionesRepositorio.UpdateAsync(entidad);

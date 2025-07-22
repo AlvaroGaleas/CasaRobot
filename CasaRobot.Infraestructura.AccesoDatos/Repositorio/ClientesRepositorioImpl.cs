@@ -22,13 +22,12 @@ namespace CasaRobot.Infraestructura.AccesoDatos.Repositorio
             try
             {
                 var resultado = from clie in _dbContext.Clientes
-                                where clie.Telefono != "0989879874"
                                 select clie;
                 return resultado.ToListAsync();
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al listar stock");
+                throw new Exception("Error al listar clientes"+ex.Message);
 
             }
         }
@@ -44,7 +43,7 @@ namespace CasaRobot.Infraestructura.AccesoDatos.Repositorio
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al listar nombres");
+                throw new Exception("Error al listar nombres"+ex.Message);
 
             }
         }

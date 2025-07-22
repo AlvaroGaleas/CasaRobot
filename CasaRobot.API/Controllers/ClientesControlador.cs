@@ -14,12 +14,12 @@ namespace CasaRobot.API.Controllers
         {
             _clientesServicio = clientesServicio;
         }
-
-        [HttpGet("GetClientes")]
-        //Listar clientes
-        public Task<IEnumerable<Clientes>> GetClientes()
+        //Listar Equipos
+        [HttpGet("GetClientes")]            
+        
+        public Task<List<Clientes>> ListarClientes()
         {
-            return _clientesServicio.GetAllClienteAsync();
+            return _clientesServicio.ListarClientes();
         }
         //Listar clientes por nombre
         [HttpGet("ListarClientesNombre/{nombre}")]
@@ -28,7 +28,7 @@ namespace CasaRobot.API.Controllers
             return _clientesServicio.ListarClientesNombre(nombre);
         }
 
-        [HttpPost("crear cliente")]
+        [HttpPost("CrearCliente")]
         public async Task<IActionResult> CrearCliente([FromBody] Clientes nuevoCliente)
         {
             try

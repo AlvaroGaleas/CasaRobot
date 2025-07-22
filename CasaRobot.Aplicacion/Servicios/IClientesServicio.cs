@@ -13,7 +13,7 @@ namespace CasaRobot.Aplicacion.Servicios
     public interface IClientesServicio
     {
         [OperationContract]
-        Task AddClienteAsync(Clientes nuevoCliente);
+        Task AddClienteAsync(Clientes nuevoCliente);//Insertar
         [OperationContract]
         Task DeleteClienteAsync(int id);//Eliminar
         [OperationContract]

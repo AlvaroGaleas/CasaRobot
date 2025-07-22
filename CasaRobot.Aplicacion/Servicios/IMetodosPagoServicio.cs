@@ -21,5 +21,7 @@ namespace CasaRobot.Aplicacion.Servicios
         Task<IEnumerable<MetodosPago>> GetAllMetodosPagoAsync();//Select *
         [OperationContract]
         Task<MetodosPago> GetbyIdMetodosPagoAsync(int id);//Buscar entidades por ID
+        [OperationContract]
+        Task<List<MetodosPago>> ListarMetodosPago();//Listar
     }
 }

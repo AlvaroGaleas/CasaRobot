@@ -12,7 +12,7 @@ namespace CasaRobot.Aplicacion.Servicios
     public interface IHistorialServiciosServicio
     {
         [OperationContract]
-        Task AddHistorialServiciosAsync(HistorialServicios nuevoEstados);
+        Task AddHistorialServiciosAsync(HistorialServicios nuevoEstados);//Insertar
         [OperationContract]
         Task DeleteHistorialServiciosAsync(int id);//Eliminar
         [OperationContract]
@@ -21,5 +21,7 @@ namespace CasaRobot.Aplicacion.Servicios
         Task<IEnumerable<HistorialServicios>> GetAllHistorialServiciosAsync();//Select *
         [OperationContract]
         Task<HistorialServicios> GetbyIdHistorialServiciosAsync(int id);//Buscar entidades por ID
+        [OperationContract]
+        Task<List<HistorialServicios>> ListarHistoriales();//ListarHistoriales
     }
 }

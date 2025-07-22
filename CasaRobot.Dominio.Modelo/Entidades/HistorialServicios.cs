@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace CasaRobot.Dominio.Modelo.Entidades;
 
@@ -14,8 +15,8 @@ public partial class HistorialServicios
     public int? EmpleadoID { get; set; }
 
     public string DescripcionTrabajo { get; set; }
-
+    [JsonIgnore]
     public virtual Empleados Empleado { get; set; }
-
+    [JsonIgnore]
     public virtual OrdenesServicio Orden { get; set; }
 }

@@ -28,5 +28,7 @@ namespace CasaRobot.Aplicacion.Servicios
         Task<List<HistorialTecnicoClienteDTO>> ListarHistorialTecnicoCliente();
         [OperationContract]
         Task<List<EstadoClientesDTO>> ListarClientesPorEstado();
+        [OperationContract]
+        Task<List<OrdenesServicio>> ListarOrdenesServicio();
     }
 }

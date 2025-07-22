@@ -10,5 +10,6 @@ namespace CasaRobot.Dominio.Modelo.Abstracciones
     public interface IEquiposRepositorio : IRepositorio<Equipos>
     {
         Task<List<Equipos>> ListarEquiposModelo(string modelo);
+        Task<List<Equipos>> ListarEquipos();
     }
 }

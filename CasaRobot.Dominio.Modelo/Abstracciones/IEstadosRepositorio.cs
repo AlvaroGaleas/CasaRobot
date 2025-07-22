@@ -9,5 +9,7 @@ namespace CasaRobot.Dominio.Modelo.Abstracciones
 {
     public interface IEstadosRepositorio: IRepositorio<Estados>
     {
+        Task<List<Estados>> ListarEstadosNombre(string nombre);
+        Task<List<Estados>> ListarEstados();
     }
 }

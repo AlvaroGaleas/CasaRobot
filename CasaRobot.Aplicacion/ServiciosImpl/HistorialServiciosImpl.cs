@@ -38,6 +38,11 @@ namespace CasaRobot.Aplicacion.ServiciosImpl
             return await historialServiciosRepositorio.GetbyIdAsync(id);
         }
 
+        public Task<List<HistorialServicios>> ListarHistoriales()
+        {
+            return historialServiciosRepositorio.ListarHistoriales();
+        }
+
         public async Task UpdateHistorialServiciosAsync(HistorialServicios entidad)
         {
             await historialServiciosRepositorio.UpdateAsync(entidad);

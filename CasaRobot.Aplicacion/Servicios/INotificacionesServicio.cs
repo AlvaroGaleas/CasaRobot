@@ -21,5 +21,7 @@ namespace CasaRobot.Aplicacion.Servicios
         Task<IEnumerable<Notificaciones>> GetAllNotificacionesAsync();//Select *
         [OperationContract]
         Task<Notificaciones> GetbyIdNotificacionesAsync(int id);//Buscar entidades por ID
+        [OperationContract]
+        Task<List<Notificaciones>> ListarNotificaciones();//Listar
     }
 }

@@ -9,5 +9,6 @@ namespace CasaRobot.Dominio.Modelo.Abstracciones
 {
     public interface IHistorialServiciosRepositorio: IRepositorio<HistorialServicios>
     {
+        Task<List<HistorialServicios>> ListarHistoriales();
     }
 }

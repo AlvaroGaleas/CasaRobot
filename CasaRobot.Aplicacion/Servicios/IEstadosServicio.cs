@@ -21,5 +21,9 @@ namespace CasaRobot.Aplicacion.Servicios
         Task<IEnumerable<Estados>> GetAllEstadosAsync();//Select *
         [OperationContract]
         Task<Estados> GetbyIdEstadossAsync(int id);//Buscar entidades por ID
+        [OperationContract]
+        Task<List<Estados>> ListarEstadosNombre(string NombreEstado);
+        [OperationContract]
+        Task<List<Estados>> ListarEstados();
     }
 }

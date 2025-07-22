@@ -54,6 +54,11 @@ namespace CasaRobot.Aplicacion.ServiciosImpl
             return ordenesServicioRepositorio.ListarOrdenesPorEstadoComplejo();
         }
 
+        public Task<List<OrdenesServicio>> ListarOrdenesServicio()
+        {
+            return ordenesServicioRepositorio.ListarOrdenesServicio();
+        }
+
         public async Task UpdateOrdenesServicioAsync(OrdenesServicio entidad)
         {
             await ordenesServicioRepositorio.UpdateAsync(entidad);

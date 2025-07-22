@@ -23,7 +23,8 @@ namespace CasaRobot.Aplicacion.Servicios
         Task<Equipos> GetbyIdEquiposAsync(int id);//Buscar entidades por ID
         [OperationContract]
         Task<List<Equipos>> ListarEquiposModelo(string modelo);
-        
+        [OperationContract]
+        Task<List<Equipos>> ListarEquipos();
 
     }
 }

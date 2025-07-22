@@ -39,6 +39,11 @@ namespace CasaRobot.Aplicacion.ServiciosImpl
             return metodosPagoRepositorio.GetbyIdAsync(id);
         }
 
+        public Task<List<MetodosPago>> ListarMetodosPago()
+        {
+            return metodosPagoRepositorio.ListarMetodosPago();
+        }
+
         public async Task UpdateMetodosPagoAsync(MetodosPago entidad)
         {
             await metodosPagoRepositorio.UpdateAsync(entidad);

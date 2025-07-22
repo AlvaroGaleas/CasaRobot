@@ -9,5 +9,6 @@ namespace CasaRobot.Dominio.Modelo.Abstracciones
 {
     public interface IMetodosPagoRepositorio: IRepositorio<MetodosPago>
     {
+        Task<List<MetodosPago>> ListarMetodosPago();
     }
 }

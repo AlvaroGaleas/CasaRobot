@@ -35,7 +35,7 @@ namespace CasaRobot.API.Controllers
                 return StatusCode(500, "error interno");
             }
         }
-        [HttpPut("{id}")]
+        [HttpPut("ActualizarCosto/{id}")]
         public async Task<IActionResult> UpdateCosto(int id, [FromBody] Costos costoActualizado)
         {
             if (id != costoActualizado.CostoID)

@@ -8,30 +8,30 @@ namespace CasaRobot.API.Controllers
     [Route("api/[controller]")]
     public class EquiposControlador: ControllerBase
     {
-        private IEquiposServicio equiposServicio;
+        private IEquiposServicio _equiposServicio;
 
         public EquiposControlador(IEquiposServicio equiposServicio)
         {
-            this.equiposServicio = equiposServicio;
+            this._equiposServicio = equiposServicio;
         }
         [HttpGet("GetEquipos")]
         //Listar Equipos
-        public Task<IEnumerable<Equipos>> GetEquipos()
+        public Task<List<Equipos>> ListarEquipos()
         {
-            return equiposServicio.GetAllEquiposAsync();
+            return _equiposServicio.ListarEquipos();
         }
         //Listar equipos por modelo
         [HttpGet("ListarEquipos/{modelo}")]
         public Task<List<Equipos>> GetEquiposModelo (string modelo)
         {
-            return equiposServicio.ListarEquiposModelo(modelo);
+            return _equiposServicio.ListarEquiposModelo(modelo);
         }
-        [HttpPost("crear equipo")]
+        [HttpPost("CrearEquipo")]
         public async Task<IActionResult> CrearEquipo([FromBody] Equipos nuevoEquipo)
         {
             try
             {
-                await equiposServicio.AddEquiposAsync(nuevoEquipo);
+                await _equiposServicio.AddEquiposAsync(nuevoEquipo);
                 return Ok();
             }
             catch (Exception ex)
@@ -46,7 +46,7 @@ namespace CasaRobot.API.Controllers
             if (id != equiposActualizado.EquipoID)
                 return BadRequest("El ID no coincide");
 
-            await equiposServicio.UpdateEquiposAsync(equiposActualizado);
+            await _equiposServicio.UpdateEquiposAsync(equiposActualizado);
             return NoContent();
         }
     }    

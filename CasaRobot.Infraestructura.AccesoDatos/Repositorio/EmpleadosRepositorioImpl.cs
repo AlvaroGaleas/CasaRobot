@@ -22,13 +22,12 @@ namespace CasaRobot.Infraestructura.AccesoDatos.Repositorio
             try
             {
                 var resultado = from emplea in _dbContext.Empleados
-                                where emplea.Telefono != "0989879874"
                                 select emplea;
                 return resultado.ToListAsync();
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al listar empleados");
+                throw new Exception("Error al listar empleados"+ex.Message);
 
             }
         }
@@ -44,7 +43,7 @@ namespace CasaRobot.Infraestructura.AccesoDatos.Repositorio
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al listar nombres");
+                throw new Exception("Error al listar nombres"+ex.Message);
 
             }
         }

@@ -119,6 +119,20 @@ namespace CasaRobot.Infraestructura.AccesoDatos.Repositorio
                 throw new Exception("Error al listar clientes por estado: " + ex.Message);
             }
         }
+        public Task<List<OrdenesServicio>> ListarOrdenesServicio()
+        {
+            try
+            {
+                var resultado = from orden in _dbContext.OrdenesServicio
+                                select orden;
+                return resultado.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al listar ordenes" + ex.Message);
+
+            }
+        }
 
     }
 }

@@ -13,11 +13,11 @@ namespace CasaRobot.API.Controllers
         {
             _empleadosServicio = empleadosServicio;
         }
-        [HttpGet("GetEmpleados")]
-        //Listar empleados
-        public Task<IEnumerable<Empleados>> GetEmpleados()
+        [HttpGet("ListarEmpleados")]
+        //Listar Empleados
+        public Task<List<Empleados>> ListarEmpleados()
         {
-            return _empleadosServicio.GetAllEmpleadosAsync();
+            return _empleadosServicio.ListarEmpleados();
         }
         //Listar empleados por nombre
         [HttpGet("ListarEmpleados/{nombre}")]
@@ -26,7 +26,7 @@ namespace CasaRobot.API.Controllers
             return _empleadosServicio.ListarEmpleadosNombre(nombre);
         }
 
-        [HttpPost("crear Empleado")]        
+        [HttpPost("CrearEmpleado")]        
         public async Task<IActionResult> CrearEmpleado([FromBody] Empleados nuevoEmpleado)
         {
             try

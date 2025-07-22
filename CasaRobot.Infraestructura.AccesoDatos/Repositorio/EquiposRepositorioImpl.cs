@@ -30,7 +30,21 @@ namespace CasaRobot.Infraestructura.AccesoDatos.Repositorio
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al listar modelos");
+                throw new Exception("Error al listar modelos"+ex.Message);
+
+            }
+        }
+        public Task<List<Equipos>> ListarEquipos()
+        {
+            try
+            {
+                var resultado = from equip in _dbContext.Equipos
+                                select equip;
+                return resultado.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al listar equipos" + ex.Message);
 
             }
         }

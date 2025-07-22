@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CasaRobot.Aplicacion.ServiciosImpl
@@ -36,6 +37,16 @@ namespace CasaRobot.Aplicacion.ServiciosImpl
         public Task<Estados> GetbyIdEstadossAsync(int id)
         {
             return estadosRepositorio.GetbyIdAsync(id);
+        }
+
+        public Task<List<Estados>> ListarEstados()
+        {
+            return estadosRepositorio.ListarEstados();
+        }
+
+        public Task<List<Estados>> ListarEstadosNombre(string NombreEstado)
+        {
+            return estadosRepositorio.ListarEstadosNombre(NombreEstado);
         }
 
         public async Task UpdateEstadosAsync(Estados entidad)

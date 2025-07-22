@@ -13,5 +13,6 @@ namespace CasaRobot.Dominio.Modelo.Abstracciones
         Task<List<EstadoOrdenDetalleDTO>> ListarOrdenesPorEstadoComplejo();
         Task<List<HistorialTecnicoClienteDTO>> ListarHistorialTecnicoCliente();
         Task<List<EstadoClientesDTO>> ListarClientesPorEstado();
+        Task<List<OrdenesServicio>> ListarOrdenesServicio();
     }
 }

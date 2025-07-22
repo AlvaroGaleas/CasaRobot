@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace CasaRobot.Dominio.Modelo.Entidades;
 
@@ -18,14 +19,14 @@ public partial class OrdenesServicio
     public string DescripcionProblema { get; set; }
 
     public DateTime? FechaSalida { get; set; }
-
+    [JsonIgnore]
     public virtual ICollection<Costos> Costos { get; set; } = new List<Costos>();
-
+    [JsonIgnore]
     public virtual Equipos Equipo { get; set; }
-
+    [JsonIgnore]
     public virtual Estados Estado { get; set; }
-
+    [JsonIgnore]
     public virtual ICollection<HistorialServicios> HistorialServicios { get; set; } = new List<HistorialServicios>();
-
+    [JsonIgnore]
     public virtual ICollection<MetodosPago> MetodosPago { get; set; } = new List<MetodosPago>();
 }

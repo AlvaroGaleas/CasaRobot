@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace CasaRobot.Dominio.Modelo.Entidades;
 
@@ -16,6 +17,6 @@ public partial class Notificaciones
     public string TipoNotificacion { get; set; }
 
     public string Detalle { get; set; }
-
+    [JsonIgnore]
     public virtual Clientes Cliente { get; set; }
 }

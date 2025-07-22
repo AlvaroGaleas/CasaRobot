@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace CasaRobot.Dominio.Modelo.Entidades;
 
@@ -16,6 +17,6 @@ public partial class MetodosPago
     public DateTime? FechaPago { get; set; }
 
     public decimal? Monto { get; set; }
-
+    [JsonIgnore]
     public virtual OrdenesServicio Orden { get; set; }
 }

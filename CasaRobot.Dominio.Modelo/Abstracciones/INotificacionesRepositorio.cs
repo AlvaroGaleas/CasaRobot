@@ -9,5 +9,6 @@ namespace CasaRobot.Dominio.Modelo.Abstracciones
 {
     public interface INotificacionesRepositorio: IRepositorio<Notificaciones>
     {
+        Task<List<Notificaciones>> ListarNotificaciones();
     }
 }
