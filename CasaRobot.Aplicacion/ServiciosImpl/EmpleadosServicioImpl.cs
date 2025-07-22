@@ -13,8 +13,10 @@ namespace CasaRobot.Aplicacion.ServiciosImpl
     public class EmpleadosServicioImpl: IEmpleadosServicio
     {
         private IEmpleadosRepositorio empleadosRepositorio;
+        private readonly CasaRobot2Context _dbcontext;
         public EmpleadosServicioImpl(CasaRobot2Context _casarobot2Context)
         {
+            _dbcontext = _casarobot2Context;
             this.empleadosRepositorio = new EmpleadosRepositorioImpl(_casarobot2Context);
         }
 
@@ -38,9 +40,19 @@ namespace CasaRobot.Aplicacion.ServiciosImpl
             return empleadosRepositorio.GetbyIdAsync(id);
         }
 
-        public async Task UpdateEmpleadosAsync(Empleados entidad)
+        public Task UpdateEmpleadosAsync(Empleados entidad)
         {
-            await empleadosRepositorio.UpdateAsync(entidad);
+            return empleadosRepositorio.UpdateAsync(entidad);
+        }
+
+        public Task<List<Empleados>> ListarEmpleadosNombre(string nombre)
+        {
+            return empleadosRepositorio.ListarEmpleadosNombre(nombre);
+        }
+
+        public Task<List<Empleados>> ListarEmpleados()
+        {
+            return empleadosRepositorio.ListarEmpleados();
         }
     }
 }

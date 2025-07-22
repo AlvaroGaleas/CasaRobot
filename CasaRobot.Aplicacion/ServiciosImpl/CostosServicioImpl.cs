@@ -13,8 +13,10 @@ namespace CasaRobot.Aplicacion.ServiciosImpl
     public class CostosServicioImpl: ICostosServicio
     {
         private ICostosRepositorio costosRepositorio;
+        private readonly CasaRobot2Context _dbcontext;
         public CostosServicioImpl(CasaRobot2Context _casarobot2Context)
         {
+            _dbcontext = _casarobot2Context;
             this.costosRepositorio = new CostosRepositorioImpl(_casarobot2Context);
         }
 

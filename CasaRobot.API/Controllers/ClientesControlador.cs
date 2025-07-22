@@ -21,5 +21,27 @@ namespace CasaRobot.API.Controllers
         {
             return _clientesServicio.GetAllClienteAsync();
         }
+        //Listar clientes por nombre
+        [HttpGet("ListarClientesNombre/{nombre}")]
+        public Task<List<Clientes>> GetClientesNombre(string nombre)
+        {
+            return _clientesServicio.ListarClientesNombre(nombre);
+        }
+
+        [HttpPost("crear cliente")]
+        public async Task<IActionResult> CrearCliente([FromBody] Clientes nuevoCliente)
+        {
+            try
+            {
+                await _clientesServicio.AddClienteAsync(nuevoCliente);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"error:{ex.Message}");
+                return StatusCode(500,"error interno");
+            }
+        }
+
     }
 }

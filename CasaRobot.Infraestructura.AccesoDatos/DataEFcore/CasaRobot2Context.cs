@@ -8,7 +8,7 @@ namespace CasaRobot.Dominio.Modelo.Entidades;
 
 public partial class CasaRobot2Context : DbContext
 {
-    public CasaRobot2Context(CasaRobot2Context dbContext)
+    public CasaRobot2Context()
     {
     }
 

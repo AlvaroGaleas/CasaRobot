@@ -38,6 +38,11 @@ namespace CasaRobot.Aplicacion.ServiciosImpl
             return equiposRepositorio.GetbyIdAsync(id);
         }
 
+        public Task<List<Equipos>> ListarEquiposModelo(string modelo)
+        {
+            return equiposRepositorio.ListarEquiposModelo(modelo);
+        }
+
         public async Task UpdateEquiposAsync(Equipos entidad)
         {
             await equiposRepositorio.UpdateAsync(entidad);

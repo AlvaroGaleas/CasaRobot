@@ -12,7 +12,7 @@ namespace CasaRobot.Aplicacion.Servicios
     public interface IEmpleadosServicio
     {
         [OperationContract]
-        Task AddEmpleadosAsync(Empleados nuevoCosto);
+        Task AddEmpleadosAsync(Empleados nuevoEmpleado);
         [OperationContract]
         Task DeleteEmpleadosAsync(int id);//Eliminar
         [OperationContract]
@@ -21,5 +21,9 @@ namespace CasaRobot.Aplicacion.Servicios
         Task<IEnumerable<Empleados>> GetAllEmpleadosAsync();//Select *
         [OperationContract]
         Task<Empleados> GetbyIdEmpleadosAsync(int id);//Buscar entidades por ID
+        [OperationContract]
+        Task<List<Empleados>> ListarEmpleadosNombre(string nombre);
+        [OperationContract]
+        Task<List<Empleados>> ListarEmpleados();
     }
 }

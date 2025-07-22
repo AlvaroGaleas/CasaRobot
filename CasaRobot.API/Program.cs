@@ -21,6 +21,13 @@ builder.Services.AddDbContext<CasaRobot2Context>(options => options.UseSqlServer
 //3.-Configurar los servicios
 builder.Services.AddScoped<IClientesServicio, ClientesServicioImpl>();
 builder.Services.AddScoped<ICostosServicio, CostosServicioImpl>();
+builder.Services.AddScoped<IEmpleadosServicio, EmpleadosServicioImpl>();
+builder.Services.AddScoped<IEquiposServicio, EquiposServicioImpl>();
+builder.Services.AddScoped<IEstadosServicio, EstadosServicioImpl>();
+builder.Services.AddScoped<IHistorialServiciosServicio, HistorialServiciosImpl>();
+builder.Services.AddScoped<IMetodosPagoServicio, MetodosPagoServicioImpl>();
+builder.Services.AddScoped<INotificacionesServicio, NotificacionesServicioImpl>();
+builder.Services.AddScoped<IOrdenesServicioServicios, OrdenesServicioImpl>();
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.

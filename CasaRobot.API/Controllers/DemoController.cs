@@ -5,7 +5,7 @@ namespace CasaRobot.API.Controllers
 {
     [ApiController]
     [Route("/")]
-    public class DemoController:   Controller
+    public class DemoController:   ControllerBase
     {
         [HttpGet]
         public string mensaje()

@@ -21,5 +21,9 @@ namespace CasaRobot.Aplicacion.Servicios
         Task<IEnumerable<Equipos>> GetAllEquiposAsync();//Select *
         [OperationContract]
         Task<Equipos> GetbyIdEquiposAsync(int id);//Buscar entidades por ID
+        [OperationContract]
+        Task<List<Equipos>> ListarEquiposModelo(string modelo);
+        
+
     }
 }
