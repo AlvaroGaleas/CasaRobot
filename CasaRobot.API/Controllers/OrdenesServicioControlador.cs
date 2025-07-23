@@ -33,5 +33,29 @@ namespace CasaRobot.API.Controllers
                 return NotFound();
             }
         }
+        [HttpPut("ActualizarOrdenes/{id}")]
+        public async Task<IActionResult> UpdateHistorial(int id, [FromBody] OrdenesServicio ordenActualizado)
+        {
+            if (id != ordenActualizado.OrdenID)
+                return BadRequest("El ID no coincide");
+
+            await _ordenesServicioServicios.UpdateOrdenesServicioAsync(ordenActualizado);
+            return NoContent();
+        }
+        //Insertar ordenes
+        [HttpPost("CrearOrdenes")]
+        public async Task<IActionResult> CrearNotificacion([FromBody] OrdenesServicio nuevaOrdenServicio)
+        {
+            try
+            {
+                await _ordenesServicioServicios.AddOrdenesServicioAsync(nuevaOrdenServicio);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"error:{ex.Message}");
+                return StatusCode(500, "error interno");
+            }
+        }
     }
 }

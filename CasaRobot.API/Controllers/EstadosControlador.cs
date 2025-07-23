@@ -53,5 +53,14 @@ namespace CasaRobot.API.Controllers
                 return NotFound();
             }
         }
+        [HttpPut("ActualizarEstados/{id}")]
+        public async Task<IActionResult> UpdateEstados(int id, [FromBody] Estados estadoActualizado)
+        {
+            if (id != estadoActualizado.EstadoID)
+                return BadRequest("El ID no coincide");
+
+            await _estadosServicio.UpdateEstadosAsync(estadoActualizado);
+            return NoContent();
+        }
     }
 }

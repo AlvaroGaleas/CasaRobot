@@ -14,6 +14,20 @@ namespace CasaRobot.API.Controllers
         {
             this._historialServiciosServicio = historialServiciosServicio;
         }
+        [HttpPost("CrearHistorial")]
+        public async Task<IActionResult> CrearEstado([FromBody] HistorialServicios nuevoHistorial)
+        {
+            try
+            {
+                await _historialServiciosServicio.AddHistorialServiciosAsync(nuevoHistorial);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"error:{ex.Message}");
+                return StatusCode(500, "error interno");
+            }
+        }
         [HttpGet("ListarHistorialesTodos")]
         //Listar historiales
         public Task<List<HistorialServicios>> ListarHistoriales()

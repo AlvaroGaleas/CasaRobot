@@ -48,5 +48,14 @@ namespace CasaRobot.API.Controllers
                 return NotFound();
             }
         }
+        [HttpPut("ActualizarNotificaciones/{id}")]
+        public async Task<IActionResult> UpdateNotificacion(int id, [FromBody] Notificaciones notificacionActualizado)
+        {
+            if (id != notificacionActualizado.NotificacionID)
+                return BadRequest("El ID no coincide");
+
+            await _notificacionesServicio.UpdateNotificacionesAsync(notificacionActualizado);
+            return NoContent();
+        }
     }
 }
