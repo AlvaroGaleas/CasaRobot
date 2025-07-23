@@ -40,5 +40,18 @@ namespace CasaRobot.API.Controllers
                 return StatusCode(500, "error interno");
             }
         }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteEstados(int id)
+        {
+            try
+            {
+                await _estadosServicio.DeleteEstadosAsync(id);
+                return NoContent();
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound();
+            }
+        }
     }
 }

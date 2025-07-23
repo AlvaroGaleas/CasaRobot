@@ -6,7 +6,7 @@ namespace CasaRobot.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class OrdenesServicioControlador
+    public class OrdenesServicioControlador: ControllerBase
     {
         private IOrdenesServicioServicios _ordenesServicioServicios;
        
@@ -19,6 +19,19 @@ namespace CasaRobot.API.Controllers
         public Task<List<OrdenesServicio>> ListarOrdenesServicio()
         {
             return _ordenesServicioServicios.ListarOrdenesServicio();
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteOrdenes(int id)
+        {
+            try
+            {
+                await _ordenesServicioServicios.DeleteOrdenesServicioAsync(id);
+                return NoContent();
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound();
+            }
         }
     }
 }

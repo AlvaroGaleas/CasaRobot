@@ -2,6 +2,7 @@
 using CasaRobot.Dominio.Modelo.Abstracciones;
 using CasaRobot.Dominio.Modelo.Entidades;
 using CasaRobot.Infraestructura.AccesoDatos.Repositorio;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +15,10 @@ namespace CasaRobot.Aplicacion.ServiciosImpl
     public class MetodosPagoServicioImpl: IMetodosPagoServicio
     {
         private IMetodosPagoRepositorio metodosPagoRepositorio;
+        private readonly CasaRobot2Context _dbcontext;
         public MetodosPagoServicioImpl(CasaRobot2Context _casarobot2Context)
         {
+            _dbcontext = _casarobot2Context;
             this.metodosPagoRepositorio = new MetodosPagoRepositorioImpl(_casarobot2Context);
         }
 
@@ -26,7 +29,12 @@ namespace CasaRobot.Aplicacion.ServiciosImpl
 
         public async Task DeleteMetodosPagoAsync(int id)
         {
-            await metodosPagoRepositorio.DeleteAsync(id);
+            var metodo = await _dbcontext.MetodosPago.FindAsync(id);
+            if (metodo == null)
+                throw new KeyNotFoundException("metodo pago no encontrado.");
+
+            _dbcontext.MetodosPago.Remove(metodo);
+            await _dbcontext.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<MetodosPago>> GetAllMetodosPagoAsync()

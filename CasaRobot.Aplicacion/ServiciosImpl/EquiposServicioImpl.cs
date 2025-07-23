@@ -30,7 +30,7 @@ namespace CasaRobot.Aplicacion.ServiciosImpl
         {
             var equipos = await _dbcontext.Equipos.FindAsync(id);
             if (equipos == null)
-                throw new KeyNotFoundException("empleado no encontrado.");
+                throw new KeyNotFoundException("equipo no encontrado.");
 
             _dbcontext.Equipos.Remove(equipos);
             await _dbcontext.SaveChangesAsync();

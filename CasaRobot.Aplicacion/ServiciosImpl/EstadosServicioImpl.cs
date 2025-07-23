@@ -14,8 +14,10 @@ namespace CasaRobot.Aplicacion.ServiciosImpl
     public class EstadosServicioImpl: IEstadosServicio
     {
         private IEstadosRepositorio estadosRepositorio;
+        private readonly CasaRobot2Context _dbcontext;
         public EstadosServicioImpl(CasaRobot2Context _casarobot2Context)
         {
+            _dbcontext = _casarobot2Context;
             this.estadosRepositorio = new EstadosRepositorioImpl(_casarobot2Context);
         }
 
@@ -26,7 +28,12 @@ namespace CasaRobot.Aplicacion.ServiciosImpl
 
         public async Task DeleteEstadosAsync(int id)
         {
-            await estadosRepositorio.DeleteAsync(id);
+            var estados = await _dbcontext.Estados.FindAsync(id);
+            if (estados == null)
+                throw new KeyNotFoundException("empleado no encontrado.");
+
+            _dbcontext.Estados.Remove(estados);
+            await _dbcontext.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<Estados>> GetAllEstadosAsync()

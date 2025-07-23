@@ -3,6 +3,7 @@ using CasaRobot.Aplicacion.Servicios;
 using CasaRobot.Dominio.Modelo.Abstracciones;
 using CasaRobot.Dominio.Modelo.Entidades;
 using CasaRobot.Infraestructura.AccesoDatos.Repositorio;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +15,10 @@ namespace CasaRobot.Aplicacion.ServiciosImpl
     public class OrdenesServicioImpl: IOrdenesServicioServicios
     {
         private IOrdenesServicioRepositorio ordenesServicioRepositorio;
+        private readonly CasaRobot2Context _dbcontext;
         public OrdenesServicioImpl(CasaRobot2Context _casarobot2Context)
         {
+            _dbcontext = _casarobot2Context;
             this.ordenesServicioRepositorio = new OrdenesServicioRepositorioImpl(_casarobot2Context);
         }
 
@@ -26,7 +29,12 @@ namespace CasaRobot.Aplicacion.ServiciosImpl
 
         public async Task DeleteOrdenesServicioAsync(int id)
         {
-            await ordenesServicioRepositorio.DeleteAsync(id);
+            var orden = await _dbcontext.OrdenesServicio.FindAsync(id);
+            if (orden == null)
+                throw new KeyNotFoundException("orden no encontrado.");
+
+            _dbcontext.OrdenesServicio.Remove(orden);
+            await _dbcontext.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<OrdenesServicio>> GetAllOrdenesServicioAsync()

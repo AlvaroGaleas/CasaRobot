@@ -29,5 +29,18 @@ namespace CasaRobot.API.Controllers
             await _historialServiciosServicio.UpdateHistorialServiciosAsync(historialActualizado);
             return NoContent();
         }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteHistorialServicios(int id)
+        {
+            try
+            {
+                await _historialServiciosServicio.DeleteHistorialServiciosAsync(id);
+                return NoContent();
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound();
+            }
+        }
     }
 }
