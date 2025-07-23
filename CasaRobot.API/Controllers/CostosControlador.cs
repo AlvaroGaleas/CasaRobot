@@ -44,5 +44,18 @@ namespace CasaRobot.API.Controllers
             await _costosServicio.UpdateCostosAsync(costoActualizado);            
             return NoContent();
         }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCostos(int id)
+        {
+            try
+            {
+                await _costosServicio.DeleteCostosAsync(id);
+                return NoContent();
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound();
+            }
+        }
     }
 }

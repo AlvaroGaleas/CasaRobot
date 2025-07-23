@@ -49,5 +49,18 @@ namespace CasaRobot.API.Controllers
             await _empleadosServicio.UpdateEmpleadosAsync(empleadosActualizado);
             return NoContent();
         }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteEmpleados(int id)
+        {
+            try
+            {
+                await _empleadosServicio.DeleteEmpleadosAsync(id);
+                return NoContent();
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound();
+            }
+        }
     }
 }

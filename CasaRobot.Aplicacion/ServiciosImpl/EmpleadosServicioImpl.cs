@@ -27,7 +27,12 @@ namespace CasaRobot.Aplicacion.ServiciosImpl
 
         public async Task DeleteEmpleadosAsync(int id)
         {
-            await empleadosRepositorio.DeleteAsync(id);
+            var empleado = await _dbcontext.Empleados.FindAsync(id);
+            if (empleado == null)
+                throw new KeyNotFoundException("empleado no encontrado.");
+
+            _dbcontext.Empleados.Remove(empleado);
+            await _dbcontext.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<Empleados>> GetAllEmpleadosAsync()

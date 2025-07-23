@@ -2,6 +2,7 @@
 using CasaRobot.Dominio.Modelo.Abstracciones;
 using CasaRobot.Dominio.Modelo.Entidades;
 using CasaRobot.Infraestructura.AccesoDatos.Repositorio;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,12 @@ namespace CasaRobot.Aplicacion.ServiciosImpl
 
         public async Task DeleteClienteAsync(int id)
         {
-           await clientesRepositorio.DeleteAsync(id);
+            var cliente = await _dbcontext.Clientes.FindAsync(id);
+            if (cliente == null)
+                throw new KeyNotFoundException("Cliente no encontrado.");
+
+            _dbcontext.Clientes.Remove(cliente);
+            await _dbcontext.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<Clientes>> GetAllClienteAsync()

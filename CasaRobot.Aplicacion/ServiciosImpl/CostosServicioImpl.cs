@@ -23,12 +23,16 @@ namespace CasaRobot.Aplicacion.ServiciosImpl
         public async Task AddCostosAsync(Costos nuevoCosto)
         {
             await costosRepositorio.AddAsync(nuevoCosto);
-        }
-
+        }       
         public async Task DeleteCostosAsync(int id)
         {
-            await costosRepositorio.DeleteAsync(id);
-        }
+            var costo = await _dbcontext.Costos.FindAsync(id);
+            if (costo == null)
+                throw new KeyNotFoundException("Costo no encontrado.");
+
+            _dbcontext.Costos.Remove(costo);
+            await _dbcontext.SaveChangesAsync();
+        }        
 
         public async Task<IEnumerable<Costos>> GetAllCostosAsync()
         {

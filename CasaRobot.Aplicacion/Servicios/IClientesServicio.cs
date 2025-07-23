@@ -26,6 +26,7 @@ namespace CasaRobot.Aplicacion.Servicios
         Task<List<Clientes>> ListarClientes();
         [OperationContract]
         Task<List<Clientes>> ListarClientesNombre(string nombre);
+
       
     }
 }
